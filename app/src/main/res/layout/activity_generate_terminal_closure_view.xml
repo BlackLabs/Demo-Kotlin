@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:padding="16dp"
+    tools:context=".controllers.GenerateTerminalClosureView">
+    <EditText
+        android:id="@+id/edtTGenerateClosurePassword"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="16dp"
+        android:ems="10"
+        android:hint="Password"
+        android:textSize="16sp" />
+    <Button
+        android:id="@+id/btnGenerateClosureAction"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Generate Terminal Closure" />
+
+    <TextView
+        android:id="@+id/txtVGenerateClosureResponse"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textSize="20sp"
+        android:text="" />
+</LinearLayout>

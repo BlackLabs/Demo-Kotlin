@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:padding="16dp"
+    tools:context=".controllers.DoCheckoutView">
+
+    <EditText
+        android:id="@+id/edtTDoCheckReference"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="16dp"
+        android:ems="10"
+        android:inputType="text"
+        android:hint="Reference"
+        android:textSize="16sp" />
+
+    <EditText
+        android:id="@+id/edtTDocheckAmount"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="16dp"
+        android:ems="10"
+        android:inputType="numberDecimal"
+        android:hint="Amount"
+        android:textSize="16sp" />
+
+    <Button
+        android:id="@+id/btnDoCheckoutAction"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Do Checkout" />
+
+    <TextView
+        android:id="@+id/txtVDocheckResponse"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:textSize="20sp"
+        android:text="" />
+
+</LinearLayout>

@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".ReadCardView">
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:padding="16dp">
+        <EditText
+            android:id="@+id/edtTReadCardAmount"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="16dp"
+            android:ems="10"
+            android:inputType="numberDecimal"
+            android:hint="Amount"
+            android:textSize="16sp" />
+
+        <Button
+            android:id="@+id/btnReadCardAction"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Read Card"
+            android:layout_marginBottom="16dp" />
+
+        <Button
+            android:id="@+id/btnMakePayment"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Make Payment"
+            android:layout_marginBottom="16dp" />
+
+        <TextView
+            android:id="@+id/txtVReadCardResponse"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:textSize="20sp"
+            android:text="" />
+
+
+    </LinearLayout>
+    <mx.pagandocheck.pagandodemokotlin.NipPagandoView
+        android:id="@+id/nipPagandoView"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" />
+</RelativeLayout>

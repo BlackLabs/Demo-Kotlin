@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools">
+    <queries>
+        <intent>
+            <action android:name="mx.pagando.check.services.AIDLPagandoService" />
+        </intent>
+    </queries>
+
+    <application
+        android:allowBackup="true"
+        android:dataExtractionRules="@xml/data_extraction_rules"
+        android:fullBackupContent="@xml/backup_rules"
+        android:icon="@mipmap/ic_launcher"
+        android:label="@string/app_name"
+        android:roundIcon="@mipmap/ic_launcher_round"
+        android:supportsRtl="true"
+        android:theme="@style/Theme.PagandoDemoKotlin"
+        tools:targetApi="31">
+
+        <activity
+            android:name=".controllers.TerminalClosureByIDView"
+            android:exported="false" />
+        <activity
+            android:name=".controllers.GenerateTerminalClosureView"
+            android:exported="false" />
+        <activity
+            android:name=".controllers.PreTerminalClosureView"
+            android:exported="false" />
+        <activity
+            android:name=".controllers.TerminalClosureView"
+            android:exported="false" />
+        <activity
+            android:name=".controllers.InitKeysView"
+            android:exported="false" />
+        <activity
+            android:name=".controllers.ReadCardView"
+            android:exported="false" />
+        <activity
+            android:name=".controllers.DoCheckoutView"
+            android:exported="false" />
+        <activity
+            android:name=".controllers.GetPendingCheckoutsView"
+            android:exported="false" />
+        <activity
+            android:name=".controllers.TransactionByFolioView"
+            android:exported="false" />
+        <activity
+            android:name=".controllers.GetPromotionsView"
+            android:exported="false" />
+        <activity
+            android:name=".controllers.GetPayLaterPromotionsView"
+            android:exported="false" />
+        <activity
+            android:name=".controllers.PrintStrView"
+            android:exported="false" />
+        <activity
+            android:name=".controllers.PrintBitmapView"
+            android:exported="false" />
+        <activity
+            android:name=".controllers.GetOperationsView"
+            android:exported="false" />
+        <activity
+            android:name=".controllers.OrganizationTransactionView"
+            android:exported="false" />
+        <activity
+            android:name=".controllers.ChangeOrganizationView"
+            android:exported="false" />
+        <activity
+            android:name=".controllers.GetOrganizationsView"
+            android:exported="false" />
+        <activity
+            android:name=".controllers.LogOutView"
+            android:exported="false" />
+        <activity
+            android:name=".controllers.LoginApiView"
+            android:exported="false" />
+        <activity
+            android:name=".controllers.MainActivity2"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+    </application>
+
+</manifest>

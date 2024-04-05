@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:padding="16dp"
+    tools:context=".controllers.GetPendingCheckoutsView">
+
+    <EditText
+        android:id="@+id/edtGetPendingCheckoutsPage"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="8dp"
+        android:hint="Current Page"
+        android:textSize="16sp" />
+
+    <EditText
+        android:id="@+id/edtGetPendingCheckoutsPerPage"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="8dp"
+        android:hint="Per Page"
+        android:textSize="16sp" />
+
+    <EditText
+        android:id="@+id/edtGetPendingCheckoutsSearch"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="8dp"
+        android:hint="Search"
+        android:textSize="16sp" />
+
+    <EditText
+        android:id="@+id/edtGetPendingCheckoutsFilters"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="8dp"
+        android:hint="Filters"
+        android:textSize="16sp" />
+
+    <EditText
+        android:id="@+id/edtGetPendingCheckoutsOrganizationId"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="8dp"
+        android:hint="Organization"
+        android:textSize="16sp" />
+
+    <EditText
+        android:id="@+id/edtGetPendingCheckoutsDate"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="16dp"
+        android:hint="Date (2024-02-19Z)"
+        android:textSize="16sp" />
+
+    <Button
+        android:id="@+id/btnGetPendingCheckoutsGet"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Get Pending Checkouts" />
+
+    <TextView
+        android:id="@+id/txtGetPendingCheckoutsResponse"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:textSize="20sp"
+        android:text="" />
+
+</LinearLayout>

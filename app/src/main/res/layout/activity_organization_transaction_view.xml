@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:padding="16dp"
+    tools:context=".controllers.OrganizationTransactionView">
+
+    <EditText
+        android:id="@+id/edtOrganizationTransactioncurrentPage"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="16dp"
+        android:hint="Current Page"
+        android:text=""
+        android:textSize="16sp" />
+
+    <EditText
+        android:id="@+id/edtOrganizationTransactionPerPage"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="16dp"
+        android:hint="Per Page"
+        android:text=""
+        android:textSize="16sp" />
+
+    <EditText
+        android:id="@+id/edtOrganizationTransactionSearch"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="16dp"
+        android:hint="Search"
+        android:text=""
+        android:textSize="16sp" />
+
+    <EditText
+        android:id="@+id/edtOrganizationTransactionFilters"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="16dp"
+        android:hint="Filters"
+        android:text=""
+        android:textSize="16sp" />
+
+    <Button
+        android:id="@+id/btnGetOrganizationTransactions"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Get Transactions"
+        android:layout_marginBottom="16dp" />
+
+    <TextView
+        android:id="@+id/txtGetOrganizationTransactionsResponse"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:textSize="20sp"
+        android:text="" />
+</LinearLayout>

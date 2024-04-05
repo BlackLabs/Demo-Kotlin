@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:padding="16dp"
+    tools:context=".controllers.PrintBitmapView">
+
+    <EditText
+        android:id="@+id/edtTPrintBitmapText"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="16dp"
+        android:ems="10"
+        android:hint="Text"
+        android:textSize="16sp" />
+
+    <EditText
+        android:id="@+id/edtTTPrintBitmapSize"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="16dp"
+        android:ems="10"
+        android:inputType="number"
+        android:hint="Size"
+        android:textSize="16sp" />
+
+    <Button
+        android:id="@+id/btnTPrintBitmapAction"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Print"
+        android:layout_marginBottom="16dp" />
+
+    <TextView
+        android:id="@+id/txtVTPrintBitmapResponse"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:textSize="20sp"
+        android:text="" />
+</LinearLayout>

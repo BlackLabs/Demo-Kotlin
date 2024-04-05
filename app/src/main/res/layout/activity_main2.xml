@@ -1,0 +1,183 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".controllers.MainActivity2">
+
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="16dp">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Authentication"
+                android:textSize="16dp"
+                />
+
+            <Button
+                android:id="@+id/btnLoginApi"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:text="Login API" />
+
+            <Button
+                android:id="@+id/btnLogOut"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:text="Logout" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Device Configuration"
+                android:textSize="16dp"
+                />
+            <Button
+                android:id="@+id/btnGetOperations"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:text="Get Operations" />
+            <Button
+                android:id="@+id/btnInitKeys"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:text="Init Keys" />
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="General Function"
+                android:textSize="16dp"
+                />
+            <Button
+                android:id="@+id/btnReadCard"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:text="Read Card" />
+            <Button
+                android:id="@+id/btnSetSignature"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:text="Set Signature" />
+            <Button
+                android:id="@+id/btnTransactionByFolio"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:text="Transaction By Folio" />
+            <Button
+                android:id="@+id/btnGetPendingCheckouts"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:text="Get Pending Checkouts" />
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Promotion Sales"
+                android:textSize="16dp"
+                />
+            <Button
+                android:id="@+id/btnDoCheckout"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:text="Do Checkout" />
+
+            <Button
+                android:id="@+id/btnGetPromotions"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:text="Get Promotions" />
+            <Button
+                android:id="@+id/btnGetPayLaterPromotions"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:text="Get Pay Later Promotions" />
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Information about organization"
+                android:textSize="16dp"
+                />
+            <Button
+                android:id="@+id/btnGetOrganizations"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:text="Get Organizations" />
+            <Button
+                android:id="@+id/btnChangeOrganization"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:text="Change Organization" />
+            <Button
+                android:id="@+id/btnOrganizationTransaction"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:text="Organization Transaction" />
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Terminal Closure"
+                android:textSize="16dp"
+                />
+            <Button
+                android:id="@+id/btnTerminalClosure"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:text="Terminal Closure" />
+
+            <Button
+                android:id="@+id/btnPreTerminalClosure"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:text="Pre Terminal Closure" />
+            <Button
+                android:id="@+id/btnGenerateTerminalClosure"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:text="Generate Terminal Closure" />
+            <Button
+                android:id="@+id/btnTerminalClosureById"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:text="Terminal Closure By id" />
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Terminal Usage"
+                android:textSize="16dp"
+                />
+            <Button
+                android:id="@+id/btnPrintStr"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:text="Print String" />
+            <Button
+                android:id="@+id/btnPrintBitmap"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:text="Print Bitmap" />
+    </LinearLayout>
+</ScrollView>
