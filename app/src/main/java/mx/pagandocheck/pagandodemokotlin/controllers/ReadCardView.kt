@@ -2,9 +2,11 @@ package mx.pagandocheck.pagandodemokotlin.controllers
 
 import android.os.Bundle
 import android.os.RemoteException
+import android.util.Log
 import android.view.View
 import android.widget.Button
 import android.widget.EditText
+import android.widget.Spinner
 import android.widget.TextView
 import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
@@ -24,9 +26,9 @@ class ReadCardView : AppCompatActivity() {
     private lateinit var nipView: NipPagandoView
     private lateinit var btnAction: Button
     private lateinit var btnMakePayment: Button
+    private lateinit var spinTransaction: Spinner
 
     private var makePaymentReady = false
-
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_read_card_view)
@@ -35,6 +37,7 @@ class ReadCardView : AppCompatActivity() {
         edtAmount = findViewById(R.id.edtTReadCardAmount)
         nipView = findViewById(R.id.nipPagandoView)
         btnMakePayment = findViewById(R.id.btnMakePayment)
+        spinTransaction = findViewById(R.id.spinnerTransactionType)
         nipView.visibility = View.GONE
         nipView.setTitle("Ingresa tu NIP")
         nipView.setActivity(this)
@@ -69,8 +72,9 @@ class ReadCardView : AppCompatActivity() {
     }
 
     private fun readCard(nipPagandoView: NipPagandoView) {
+        Log.d("XXXXX READ",spinTransaction.getSelectedItem().toString())
         val checkServices = CheckServices.getInstance(this)
-        checkServices.readCard(nipPagandoView, edtAmount.text.toString(), "SALE", object : ReadCardCallback.Stub() {
+        checkServices.readCard(nipPagandoView, edtAmount.text.toString(), spinTransaction.getSelectedItem().toString(), object : ReadCardCallback.Stub() {
             override fun onError(error: ErrorResponse) {
                 txtVResponse.text = error.code + " " + error.message
             }

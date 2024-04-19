@@ -1,3 +1,11 @@
 <resources>
     <string name="app_name">PagandoDemoKotlin</string>
+    <string-array name="transaction_types">
+        <item>SALE</item>
+        <item>REFUND</item>
+        <item>CANCEL</item>
+        <item>CHECK_IN</item>
+        <item>CHECK_OUT</item>
+        <item>REAUTHORIZATION</item>
+    </string-array>
 </resources>
