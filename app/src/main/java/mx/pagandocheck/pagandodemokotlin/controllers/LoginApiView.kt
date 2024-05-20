@@ -19,8 +19,8 @@ class LoginApiView : AppCompatActivity() {
     private var edtCookie: EditText? = null
     private var txtVResponse: TextView? = null
     private var switchSandbox: Switch? = null
-    private val key = "K0bhVl7uXeFGk6aWyWKb" // insert your provided key
-    private val cookie = "97f99c0c040c7989a936a95be5f74e4b2554da88" // insert your provided cookie
+    private val key = "" // insert your provided key
+    private val cookie = "" // insert your provided cookie
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_login_api_view)
