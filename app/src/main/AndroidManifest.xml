@@ -19,6 +19,9 @@
         android:theme="@style/Theme.PagandoDemoKotlin"
         tools:targetApi="31">
         <activity
+            android:name=".controllers.DetailTransactionById"
+            android:exported="false" />
+        <activity
             android:name=".controllers.TokenStatus"
             android:exported="false" />
         <activity

@@ -32,6 +32,7 @@ import mx.pagando.check.services.ReadCardCallback
 import mx.pagando.check.services.SignatureCallback
 import mx.pagando.check.services.TokenStatusCallback
 import mx.pagando.check.services.TransactionByFolioCallback
+import mx.pagando.check.services.TransactionDetailCallback
 import mx.pagando.check.services.models.ErrorResponse
 
 class CheckServices(context: Context) {
@@ -405,6 +406,12 @@ class CheckServices(context: Context) {
         } catch (e: Exception) {
             e.printStackTrace()
         }
+    }
+    fun getTransactionDetail(transactionId: String,  callback: TransactionDetailCallback) {
+        if (pagandoService != null)
+            pagandoService!!.getTransactionDetail(transactionId ,callback)
+        else
+            callback.onError(responseCode("no se pudo conectar al servicio... getTransactionDetail"))
     }
     fun getTokenInPotency(
         token: String,

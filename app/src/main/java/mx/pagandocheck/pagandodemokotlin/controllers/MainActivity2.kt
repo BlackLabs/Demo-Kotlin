@@ -30,6 +30,8 @@ class MainActivity2 : AppCompatActivity() {
     private var btnGenerateTerminalClosure: Button? = null
     private var btnTerminalClosureByID: Button? = null
     private var btnGetTokenStatus: Button? = null
+    private var btnGetTransactionById: Button? = null
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main2)
@@ -64,113 +66,120 @@ class MainActivity2 : AppCompatActivity() {
         btnTerminalClosureByID = findViewById(R.id.btnTerminalClosureById)
         btnInitKeys = findViewById(R.id.btnInitKeys)
         btnGetTokenStatus = findViewById(R.id.btnGetTokenStatus)
+        btnGetTransactionById = findViewById(R.id.btnTransactionById)
     }
 
     private fun addFunctions() {
 
-        btnLoginApi!!.setOnClickListener { v: View? ->
+        btnLoginApi!!.setOnClickListener {
             navigateTo(
                 LoginApiView::class.java
             )
         }
-        btnLogOut!!.setOnClickListener { v: View? ->
+        btnLogOut!!.setOnClickListener {
             navigateTo(
                 LogOutView::class.java
             )
         }
-        btnGetOrganizations!!.setOnClickListener { v: View? ->
+        btnGetOrganizations!!.setOnClickListener {
             navigateTo(
                 GetOrganizationsView::class.java
             )
         }
-        btnChangeOrganization!!.setOnClickListener { v: View? ->
+        btnChangeOrganization!!.setOnClickListener {
             navigateTo(
                 ChangeOrganizationView::class.java
             )
         }
-        btnOrganizationTransaction!!.setOnClickListener { v: View? ->
+        btnOrganizationTransaction!!.setOnClickListener {
             navigateTo(
                 OrganizationTransactionView::class.java
             )
         }
-        btnGetOperations!!.setOnClickListener { v: View? ->
+        btnGetOperations!!.setOnClickListener {
             navigateTo(
                 GetOperationsView::class.java
             )
         }
-        btnSetSignature!!.setOnClickListener { v: View? ->
+        btnSetSignature!!.setOnClickListener {
             navigateTo(
                 SetSignatureView::class.java
             )
         }
-        btnPrintBitmap!!.setOnClickListener { v: View? ->
+        btnPrintBitmap!!.setOnClickListener {
             navigateTo(
                 PrintBitmapView::class.java
             )
         }
-        btnPrintStr!!.setOnClickListener { v: View? ->
+        btnPrintStr!!.setOnClickListener {
             navigateTo(
                 PrintStrView::class.java
             )
         }
-        btnGetPayLaterPromotions!!.setOnClickListener { v: View? ->
+        btnGetPayLaterPromotions!!.setOnClickListener {
             navigateTo(
                 GetPayLaterPromotionsView::class.java
             )
         }
-        btnGetPromotions!!.setOnClickListener { v: View? ->
+        btnGetPromotions!!.setOnClickListener {
             navigateTo(
                 GetPromotionsView::class.java
             )
         }
-        btnTransactionByFolio!!.setOnClickListener { v: View? ->
+        btnTransactionByFolio!!.setOnClickListener {
             navigateTo(
                 TransactionByFolioView::class.java
             )
         }
-        btnGetPendingCheckouts!!.setOnClickListener { v: View? ->
+        btnGetPendingCheckouts!!.setOnClickListener {
             navigateTo(
                 GetPendingCheckoutsView::class.java
             )
         }
-        btnDoCheckout!!.setOnClickListener { v: View? ->
+        btnDoCheckout!!.setOnClickListener {
             navigateTo(
                 DoCheckoutView::class.java
             )
         }
-        btnReadCard!!.setOnClickListener { v: View? ->
+        btnReadCard!!.setOnClickListener {
             navigateTo(
                 ReadCardView::class.java
             )
         }
-        btnTerminalClosure!!.setOnClickListener { v: View? ->
+        btnTerminalClosure!!.setOnClickListener {
             navigateTo(
                 TerminalClosureView::class.java
             )
         }
-        btnPreTerminalClosure!!.setOnClickListener { v: View? ->
+        btnPreTerminalClosure!!.setOnClickListener {
             navigateTo(
                 PreTerminalClosureView::class.java
             )
         }
-        btnGenerateTerminalClosure!!.setOnClickListener { v: View? ->
+        btnGenerateTerminalClosure!!.setOnClickListener {
             navigateTo(
                 GenerateTerminalClosureView::class.java
             )
         }
-        btnTerminalClosureByID!!.setOnClickListener { v: View? ->
+        btnTerminalClosureByID!!.setOnClickListener {
             navigateTo(
                 TerminalClosureByIDView::class.java
             )
         }
-        btnInitKeys!!.setOnClickListener { v: View? ->
+        btnInitKeys!!.setOnClickListener {
             navigateTo(
                 InitKeysView::class.java
             )
         }
-        btnGetTokenStatus!!.setOnClickListener { v: View? ->
+        btnGetTokenStatus!!.setOnClickListener {
             navigateTo(
                 TokenStatus::class.java
+            )
+        }
+
+        btnGetTransactionById!!.setOnClickListener {
+            navigateTo(
+                DetailTransactionById::class.java
             )
         }
     }
