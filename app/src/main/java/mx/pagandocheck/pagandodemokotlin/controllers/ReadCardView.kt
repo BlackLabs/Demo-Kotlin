@@ -72,7 +72,6 @@ class ReadCardView : AppCompatActivity() {
     }
 
     private fun readCard(nipPagandoView: NipPagandoView) {
-        Log.d("XXXXX READ",spinTransaction.getSelectedItem().toString())
         val checkServices = CheckServices.getInstance(this)
         checkServices.readCard(nipPagandoView, edtAmount.text.toString(), spinTransaction.getSelectedItem().toString(), object : ReadCardCallback.Stub() {
             override fun onError(error: ErrorResponse) {

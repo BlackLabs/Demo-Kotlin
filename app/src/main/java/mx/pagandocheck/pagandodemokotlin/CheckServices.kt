@@ -30,6 +30,7 @@ import mx.pagando.check.services.PrintCallback
 import mx.pagando.check.services.PromotionsCallback
 import mx.pagando.check.services.ReadCardCallback
 import mx.pagando.check.services.SignatureCallback
+import mx.pagando.check.services.TokenStatusCallback
 import mx.pagando.check.services.TransactionByFolioCallback
 import mx.pagando.check.services.models.ErrorResponse
 
@@ -404,5 +405,11 @@ class CheckServices(context: Context) {
         } catch (e: Exception) {
             e.printStackTrace()
         }
+    }
+    fun getTokenInPotency(
+        token: String,
+        callback: TokenStatusCallback.Stub
+    ) {
+        pagandoService?.getTokenStatus(token, callback)
     }
 }

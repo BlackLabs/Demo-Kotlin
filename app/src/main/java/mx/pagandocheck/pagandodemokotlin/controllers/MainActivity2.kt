@@ -29,6 +29,7 @@ class MainActivity2 : AppCompatActivity() {
     private var btnPreTerminalClosure: Button? = null
     private var btnGenerateTerminalClosure: Button? = null
     private var btnTerminalClosureByID: Button? = null
+    private var btnGetTokenStatus: Button? = null
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main2)
@@ -62,6 +63,7 @@ class MainActivity2 : AppCompatActivity() {
         btnGenerateTerminalClosure = findViewById(R.id.btnGenerateTerminalClosure)
         btnTerminalClosureByID = findViewById(R.id.btnTerminalClosureById)
         btnInitKeys = findViewById(R.id.btnInitKeys)
+        btnGetTokenStatus = findViewById(R.id.btnGetTokenStatus)
     }
 
     private fun addFunctions() {
@@ -164,6 +166,11 @@ class MainActivity2 : AppCompatActivity() {
         btnInitKeys!!.setOnClickListener { v: View? ->
             navigateTo(
                 InitKeysView::class.java
+            )
+        }
+        btnGetTokenStatus!!.setOnClickListener { v: View? ->
+            navigateTo(
+                TokenStatus::class.java
             )
         }
     }
