@@ -76,6 +76,12 @@
                 android:layout_marginTop="8dp"
                 android:text="Transaction By Folio" />
             <Button
+                android:id="@+id/btnTransactionById"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:text="Detail Transaction by id" />
+            <Button
                 android:id="@+id/btnGetPendingCheckouts"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -106,6 +112,12 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="8dp"
                 android:text="Get Pay Later Promotions" />
+            <Button
+                android:id="@+id/btnGetTokenStatus"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:text="Token Status" />
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"

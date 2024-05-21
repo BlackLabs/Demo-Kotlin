@@ -5,4 +5,5 @@ import mx.pagando.check.services.models.ErrorResponse;
 interface PromotionsCallback {
     void onError(inout ErrorResponse errorResponse);
     void onSuccessful(inout List<Promotion> promotions);
+    void onTokenInPotency(String token);
 }

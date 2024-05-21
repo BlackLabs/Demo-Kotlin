@@ -1,10 +1,16 @@
 package mx.pagando.check.services.models;
+
+import java.util.List;
 /**
  * Clase PaymentHistoryResponse representa la respuesta del historial de pagos.
  * Contiene listas detalladas de varios aspectos de las transacciones de pago.
  */
 parcelable PaymentHistoryResponse {
-   // Lista de estados del pago. Cada elemento indica si un pago fue aprobado o no.
+
+    // Lista de id de transacciones
+    List<String> transactionId;
+
+    // Lista de estados del pago. Cada elemento indica si un pago fue aprobado o no.
     List<String> status;
 
     // Descripciones detalladas de los estados de los pagos.
@@ -39,4 +45,10 @@ parcelable PaymentHistoryResponse {
 
     //propina sobre la compra
     List<String> tipAmount;
+    // Saber si ha sido dispersado
+    List<String> isDispersed;
+
+    boolean hasNext;
+
+    String nextPage;
 }

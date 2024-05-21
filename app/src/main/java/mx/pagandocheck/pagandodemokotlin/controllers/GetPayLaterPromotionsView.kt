@@ -35,7 +35,12 @@ class GetPayLaterPromotionsView : AppCompatActivity() {
                     }
 
                     override fun onSuccessful(promotions: List<Promotion>) {
-                        runOnUiThread { txtVResponse!!.text = "Promotions:\n $promotions" }
+                        runOnUiThread { txtVResponse!!.text = "${txtVResponse!!.text} Promotions:\n $promotions" }
+                    }
+
+                    override fun onTokenInPotency(token: String?) {
+                        runOnUiThread{ txtVResponse!!.text = "Token in potency: $token \n"}
+                        saveTokenInSharedPreferences(token)
                     }
                 })
             } catch (e: RemoteException) {
@@ -43,4 +48,12 @@ class GetPayLaterPromotionsView : AppCompatActivity() {
                 runOnUiThread { txtVResponse!!.text = "Remote exception occurred" }
             }
         }
+    private fun saveTokenInSharedPreferences(token: String?) {
+        if (token != null) {
+            val sharedPreferences = getSharedPreferences("MyAppPrefs", MODE_PRIVATE)
+            val editor = sharedPreferences.edit()
+            editor.putString("tokenInPotency", token)
+            editor.apply()
+        }
+    }
 }

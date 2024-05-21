@@ -21,6 +21,8 @@ import mx.pagando.check.services.GenerateClosureCallback;
 import mx.pagando.check.services.GetClosureByIdCallback;
 import mx.pagando.check.services.DoCheckoutCallback;
 import mx.pagando.check.services.SendEmailCallback;
+import mx.pagando.check.services.TransactionDetailCallback;
+import mx.pagando.check.services.TokenStatusCallback;
 import mx.pagando.check.services.models.OrganizationInfo;
 import mx.pagando.check.services.models.UserInfo;
 
@@ -63,8 +65,11 @@ interface AIDLPagandoInterface {
     void preTerminalClosure(PreTerminalClosureCallback callback);
     void generateClosure(String password, GenerateClosureCallback callback);
     void getClosureById(String password, GetClosureByIdCallback callback);
+    void getTransactionDetail(String transactionId, TransactionDetailCallback callback);
 
+    void cancelReadCard();
     OrganizationInfo getSelectedOrganization();
     UserInfo getUserInfo();
     String getAffiliation();
+    void getTokenStatus(String tokenInPotency, TokenStatusCallback callback);
 }

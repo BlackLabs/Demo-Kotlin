@@ -2,32 +2,39 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
     android:padding="16dp"
-    tools:context=".controllers.TransactionByFolioView">
+    tools:context=".controllers.TokenStatus">
 
     <EditText
-        android:id="@+id/edtTransactionByFolioFolio"
+        android:id="@+id/edtTokenStatus"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginBottom="16dp"
         android:ems="10"
         android:inputType="text"
-        android:hint="Folio"
+        android:hint="Token"
         android:text=""
         android:textSize="16sp" />
-
     <Button
-        android:id="@+id/btnTransactionByFolioGet"
+        android:id="@+id/btnGetLastToken"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Get transaction"
+        android:text="Get Last Token"
+        android:layout_marginBottom="16dp" />
+    <Button
+        android:id="@+id/btnTokenStatusGet"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Get Status"
         android:layout_marginBottom="16dp" />
 
+
     <TextView
-        android:id="@+id/txtVTransactionByFolioResponse"
+        android:id="@+id/txtVTokenStatusResponse"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="16dp"
