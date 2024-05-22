@@ -46,7 +46,7 @@ parcelable PaymentHistoryResponse {
     //propina sobre la compra
     List<String> tipAmount;
     // Saber si ha sido dispersado
-    List<String> isDispersed;
+    List<String> hasDispersion;
 
     boolean hasNext;
 
