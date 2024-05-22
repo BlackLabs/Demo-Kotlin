@@ -38,22 +38,10 @@ class GetPromotionsView : AppCompatActivity() {
                         runOnUiThread { txtResponse!!.text = "${txtResponse!!.text} Promotions:\n $promotions" }
                     }
 
-                    override fun onTokenInPotency(token: String?) {
-                        runOnUiThread{ txtResponse!!.text = "Token in potency: $token \n"}
-                        saveTokenInSharedPreferences(token)
-                    }
                 })
             } catch (e: RemoteException) {
                 Log.e("GetPromotionsView", "RemoteException in getPromotions", e)
                 runOnUiThread { txtResponse!!.text = "Remote exception occurred" }
             }
         }
-    private fun saveTokenInSharedPreferences(token: String?) {
-        if (token != null) {
-            val sharedPreferences = getSharedPreferences("MyAppPrefs", MODE_PRIVATE)
-            val editor = sharedPreferences.edit()
-            editor.putString("tokenInPotency", token)
-            editor.apply()
-        }
-    }
 }

@@ -15,6 +15,7 @@ import mx.pagando.check.services.AIDLPagandoInterface
 import mx.pagando.check.services.ChangeOrganizationCallback
 import mx.pagando.check.services.DoCheckoutCallback
 import mx.pagando.check.services.GenerateClosureCallback
+import mx.pagando.check.services.GetCardBrandCallback
 import mx.pagando.check.services.GetClosureByIdCallback
 import mx.pagando.check.services.GetOperationsCallback
 import mx.pagando.check.services.GetOrganizationsCallback
@@ -418,5 +419,13 @@ class CheckServices(context: Context) {
         callback: TokenStatusCallback.Stub
     ) {
         pagandoService?.getTokenStatus(token, callback)
+    }
+    fun getCardBrand(callback: GetCardBrandCallback.Stub) {
+        try {
+            if (pagandoService != null)
+                pagandoService!!.getCardBrand(callback)
+        } catch (e: Exception) {
+            e.printStackTrace()
+        }
     }
 }

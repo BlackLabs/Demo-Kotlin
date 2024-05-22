@@ -22,6 +22,7 @@ import mx.pagando.check.services.GetClosureByIdCallback;
 import mx.pagando.check.services.DoCheckoutCallback;
 import mx.pagando.check.services.SendEmailCallback;
 import mx.pagando.check.services.TransactionDetailCallback;
+import mx.pagando.check.services.GetCardBrandCallback;
 import mx.pagando.check.services.TokenStatusCallback;
 import mx.pagando.check.services.models.OrganizationInfo;
 import mx.pagando.check.services.models.UserInfo;
@@ -71,5 +72,7 @@ interface AIDLPagandoInterface {
     OrganizationInfo getSelectedOrganization();
     UserInfo getUserInfo();
     String getAffiliation();
+
+    void getCardBrand(GetCardBrandCallback callback);
     void getTokenStatus(String tokenInPotency, TokenStatusCallback callback);
 }

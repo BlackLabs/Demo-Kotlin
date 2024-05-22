@@ -10,9 +10,11 @@ import android.widget.Spinner
 import android.widget.TextView
 import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
+import mx.pagando.check.services.GetCardBrandCallback
 import mx.pagando.check.services.MakePaymentCallback
 import mx.pagando.check.services.ReadCardCallback
 import mx.pagando.check.services.SelectAppCallback
+import mx.pagando.check.services.models.CardBrand
 import mx.pagando.check.services.models.ErrorResponse
 import mx.pagando.check.services.models.PaymentResponse
 import mx.pagandocheck.pagandodemokotlin.CheckServices
@@ -26,8 +28,8 @@ class ReadCardView : AppCompatActivity() {
     private lateinit var nipView: NipPagandoView
     private lateinit var btnAction: Button
     private lateinit var btnMakePayment: Button
+    private lateinit var btnCardBrand: Button
     private lateinit var spinTransaction: Spinner
-
     private var makePaymentReady = false
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -38,15 +40,39 @@ class ReadCardView : AppCompatActivity() {
         nipView = findViewById(R.id.nipPagandoView)
         btnMakePayment = findViewById(R.id.btnMakePayment)
         spinTransaction = findViewById(R.id.spinnerTransactionType)
-        nipView.visibility = View.GONE
+        btnCardBrand = findViewById(R.id.btnReadCardBrand)
+        nipView.setVisibility(false)
         nipView.setTitle("Ingresa tu NIP")
         nipView.setActivity(this)
 
+        btnCardBrand.setOnClickListener{cardBrand()}
         btnAction.setOnClickListener { readCard(nipView) }
         btnMakePayment.setOnClickListener {
             if (makePaymentReady) {
                 makePayment()
             }
+        }
+    }
+
+    private fun cardBrand(){
+        val checkServices = CheckServices.getInstance(this)
+        checkServices.getCardBrand(object : GetCardBrandCallback.Stub() {
+            override fun onSuccessful(cardBrand: CardBrand?) {
+                runOnUiThread {txtVResponse.text = "Success\n Card Brand: " + cardBrand?.let { Stringfy.getString(it) }}
+                saveTokenInSharedPreferences(cardBrand?.idempotencyToken)
+            }
+
+            override fun onError(error: ErrorResponse) {
+                runOnUiThread {txtVResponse.text = error.code + " " + error.message}
+            }
+        })
+    }
+    private fun saveTokenInSharedPreferences(token: String?) {
+        if (token != null) {
+            val sharedPreferences = getSharedPreferences("MyAppPrefs", MODE_PRIVATE)
+            val editor = sharedPreferences.edit()
+            editor.putString("tokenInPotency", token)
+            editor.apply()
         }
     }
 

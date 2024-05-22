@@ -31,6 +31,12 @@
             android:layout_height="wrap_content"
             android:text="Read Card"
             android:layout_marginBottom="16dp" />
+        <Button
+            android:id="@+id/btnReadCardBrand"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Card Brand"
+            android:layout_marginBottom="16dp" />
 
         <Button
             android:id="@+id/btnMakePayment"
