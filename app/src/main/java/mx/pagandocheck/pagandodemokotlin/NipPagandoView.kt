@@ -128,6 +128,7 @@ constructor(context: Context, attrs: AttributeSet? = null, defStyleAttr: Int = 0
                 result += " " + var2[i]
             }
 
+
             return var2
         } catch (e: RemoteException) {
             e.printStackTrace()
@@ -262,6 +263,19 @@ constructor(context: Context, attrs: AttributeSet? = null, defStyleAttr: Int = 0
 
     fun setActivity(activity: Activity) {
         this.activity = activity
+    }
+
+    /**
+     * Cambia la visibilidad del teclado en pantalla.
+     *
+     * @param flag `true` para mostrar el teclado, `false` para ocultarlo.
+     */
+    fun setVisibility(flag: Boolean) {
+        if (flag) {
+            keypad.visibility = View.VISIBLE
+        } else {
+            keypad.visibility = View.INVISIBLE
+        }
     }
 
     @SuppressLint("SetTextI18n")

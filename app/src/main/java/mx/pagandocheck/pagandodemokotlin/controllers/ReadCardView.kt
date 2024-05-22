@@ -41,7 +41,7 @@ class ReadCardView : AppCompatActivity() {
         btnMakePayment = findViewById(R.id.btnMakePayment)
         spinTransaction = findViewById(R.id.spinnerTransactionType)
         btnCardBrand = findViewById(R.id.btnReadCardBrand)
-        nipView.visibility = View.GONE
+        nipView.setVisibility(false)
         nipView.setTitle("Ingresa tu NIP")
         nipView.setActivity(this)
 
