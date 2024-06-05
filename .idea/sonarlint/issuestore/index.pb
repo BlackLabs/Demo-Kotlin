@@ -67,3 +67,11 @@ A
 Napp/src/main/aidl/mx/pagando/check/services/models/PaymentHistoryResponse.aidl,8/0/80bea6ee26f25a51b15e227f1f8e796b6f3b808c
 q
 Aapp/src/main/aidl/mx/pagando/check/services/models/CardBrand.aidl,e/b/eb492a81bca1f595877c47b7808137952ca5ea88
+„
+Tapp/src/main/java/mx/pagandocheck/pagandodemokotlin/controllers/GetOperationsView.kt,8/8/8808f8e244cb0ba8a0085ba680307ec3c58fdbea
+v
+Fapp/src/main/aidl/mx/pagando/check/services/GetOperationsCallback.aidl,4/a/4aa5e6df02dcf7bd40a0838ccd27d0ffb9666356
+w
+Gapp/src/main/aidl/mx/pagando/check/services/models/PaymentResponse.aidl,4/e/4e31ed9020f58a3292af6c9bed29e9780d58b111
+x
+Happ/src/main/aidl/mx/pagando/check/services/models/OrganizationInfo.aidl,7/8/781a8a5793f713e3f99c1816d714d9c966e5b78f

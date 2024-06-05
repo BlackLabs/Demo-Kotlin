@@ -1,19 +1,22 @@
 package mx.pagando.check.services.models;
 
 parcelable TokenStatusOrder {
-     String folio;
-     String authCode;
-     String currency;
-     String cardBrand;
-     String operationStatus;
-     String accountType;
-     String concept;
-     String created_at;
-     String amount;
-     String last4;
-     String emvType;
-     boolean isRecurrentPayment;
-     String operationType;
-     String responseCode;
-     String responseDescription;
+    String accountType;
+    String AID;
+    String BIN;
+    String ARQC;
+    String BIN8;
+    String last4;
+    String brand;
+    String folio;
+    String amount;
+    String status;
+    String emvType;
+    String authCode;
+    String pinEntry;
+    String description;
+    String merchantIdCode;
+    String operationType;
+    String transactionTime;
+    String requireSignature;
 }

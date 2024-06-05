@@ -6,11 +6,6 @@ parcelable PaymentResponse {
     String authCode;
     String traceNumber;
     String retrievalReference;
-    String cardIssuerResponse;
-    String receivingInstitutionCode;
-    String terminalAddressBranch;
-    String posSettlementData;
-    String messageType;
     String status;
     String folio;
     boolean requireSignature;
@@ -18,12 +13,16 @@ parcelable PaymentResponse {
     boolean mustReloadKeySoon;
     String ARQC;
     String ARPC;
-    String xmlTlv;
-    String cardBrand;
     String brand;
     String last4;
     String AID;
     String accountType;
     String employee;
     double tipAmount = 0.0;
+    String merchantIdCode;
+    double amount;
+    String transactionTime;
+    boolean pinEntry;
+    String emvType;
+    String operationType;
 }

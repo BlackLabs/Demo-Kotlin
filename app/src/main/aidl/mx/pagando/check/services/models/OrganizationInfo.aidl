@@ -10,5 +10,4 @@ parcelable OrganizationInfo {
    String city;
    String state;
    String RFC;
-   String branch;
 }
