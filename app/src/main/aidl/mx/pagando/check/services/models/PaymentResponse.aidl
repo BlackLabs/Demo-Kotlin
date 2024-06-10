@@ -4,15 +4,12 @@ parcelable PaymentResponse {
     String responseCode;
     String description;
     String authCode;
-    String traceNumber;
-    String retrievalReference;
     String status;
     String folio;
     boolean requireSignature;
     boolean mustReloadKeyNow;
     boolean mustReloadKeySoon;
     String ARQC;
-    String ARPC;
     String brand;
     String last4;
     String AID;
@@ -25,4 +22,6 @@ parcelable PaymentResponse {
     boolean pinEntry;
     String emvType;
     String operationType;
+    String BIN;
+    String BIN8;
 }

@@ -5,6 +5,7 @@ parcelable TransactionFolioResponse {
     String _id;
     String employee;
     String amount;
+    String tipAmount;
     String last4;
     String AID;
     long transactionTime;
