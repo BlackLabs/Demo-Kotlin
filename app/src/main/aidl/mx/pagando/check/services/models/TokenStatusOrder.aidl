@@ -16,7 +16,9 @@ parcelable TokenStatusOrder {
     boolean pinEntry;
     String tipAmount;
     String description;
-    String affiliation;
+    String merchantIdCode;
+    String responseCode;
+    String employee;
     String operationType;
     String transactionTime;
     boolean requireSignature;

@@ -22,4 +22,6 @@ parcelable PaymentResponse {
     boolean pinEntry;
     String emvType;
     String operationType;
+    String BIN;
+    String BIN8;
 }
