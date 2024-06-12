@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">PagandoDemoKotlin 1.0.12</string>
+    <string name="app_name">PagandoDemoKotlin 1.0.13</string>
     <string-array name="transaction_types">
         <item>SALE</item>
         <item>REFUND</item>
