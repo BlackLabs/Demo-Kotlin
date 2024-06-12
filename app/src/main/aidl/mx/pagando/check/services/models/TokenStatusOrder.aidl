@@ -13,10 +13,11 @@ parcelable TokenStatusOrder {
     String status;
     String emvType;
     String authCode;
-    String pinEntry;
+    boolean pinEntry;
+    String tipAmount;
     String description;
     String affiliation;
     String operationType;
     String transactionTime;
-    String requireSignature;
+    boolean requireSignature;
 }

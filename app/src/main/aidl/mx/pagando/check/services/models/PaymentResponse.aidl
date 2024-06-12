@@ -15,13 +15,11 @@ parcelable PaymentResponse {
     String AID;
     String accountType;
     String employee;
-    double tipAmount = 0.0;
+    String tipAmount;
     String merchantIdCode;
-    double amount;
+    String amount;
     String transactionTime;
     boolean pinEntry;
     String emvType;
     String operationType;
-    String BIN;
-    String BIN8;
 }

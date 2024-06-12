@@ -5,3 +5,17 @@ w
 Gapp/src/main/aidl/mx/pagando/check/services/models/PaymentResponse.aidl,4/e/4e31ed9020f58a3292af6c9bed29e9780d58b111
 P
  app/src/main/AndroidManifest.xml,8/c/8c55c3ccc257e5907959013f99656e4c8ec3903e
+x
+Happ/src/main/aidl/mx/pagando/check/services/models/OrganizationInfo.aidl,7/8/781a8a5793f713e3f99c1816d714d9c966e5b78f
+„
+Tapp/src/main/java/mx/pagandocheck/pagandodemokotlin/controllers/GetOperationsView.kt,8/8/8808f8e244cb0ba8a0085ba680307ec3c58fdbea
+v
+Fapp/src/main/aidl/mx/pagando/check/services/GetOperationsCallback.aidl,4/a/4aa5e6df02dcf7bd40a0838ccd27d0ffb9666356
+t
+Dapp/src/main/java/mx/pagandocheck/pagandodemokotlin/CheckServices.kt,3/4/34a04ff6f8f85a00d50c79ae4ed0785406ec8c48
+
+Oapp/src/main/java/mx/pagandocheck/pagandodemokotlin/controllers/ReadCardView.kt,8/c/8c0165b63b8932ea5a29242c37dcd580c82f6e1e
+u
+Eapp/src/main/aidl/mx/pagando/check/services/AIDLPagandoInterface.aidl,a/a/aa7e8884548d4165996ecea7af3ee6acd1506356
+
+Oapp/src/main/java/mx/pagandocheck/pagandodemokotlin/controllers/LoginApiView.kt,0/9/09d6938dafd5a010e0895a0f4998a6b109e24b4e
