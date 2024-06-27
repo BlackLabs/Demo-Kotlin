@@ -19,3 +19,5 @@ u
 Eapp/src/main/aidl/mx/pagando/check/services/AIDLPagandoInterface.aidl,a/a/aa7e8884548d4165996ecea7af3ee6acd1506356
 
 Oapp/src/main/java/mx/pagandocheck/pagandodemokotlin/controllers/LoginApiView.kt,0/9/09d6938dafd5a010e0895a0f4998a6b109e24b4e
+
+Oapp/src/main/java/mx/pagandocheck/pagandodemokotlin/controllers/InitKeysView.kt,b/c/bc859649e74d783fe779095b6b8db02b2c82bdfd

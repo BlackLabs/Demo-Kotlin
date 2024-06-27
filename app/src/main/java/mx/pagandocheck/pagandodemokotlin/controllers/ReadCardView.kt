@@ -1,5 +1,6 @@
 package mx.pagandocheck.pagandodemokotlin.controllers
 
+import android.content.DialogInterface
 import android.os.Bundle
 import android.os.RemoteException
 import android.util.Log
@@ -124,8 +125,15 @@ class ReadCardView : AppCompatActivity() {
                     AlertDialog.Builder(this@ReadCardView)
                         .setTitle("Select Application")
                         .setCancelable(false)
-                        .setNegativeButton("Cancel") { dialog, _ -> dialog.dismiss() }
-                        .setItems(apps) { dialog, _ -> dialog.dismiss() }
+                        .setNegativeButton("Cancel") { dialog, wich ->
+                            dialog.dismiss()
+                            selectAppCallback!!.cancel()
+                            checkServices.cancelCardRead()
+                        }
+                        .setItems(apps) { dialog, wich ->
+                            dialog.dismiss()
+                            selectAppCallback!!.selectApp(wich)
+                        }
                         .show()
                 }
             }

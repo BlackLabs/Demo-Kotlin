@@ -428,4 +428,7 @@ class CheckServices(context: Context) {
             e.printStackTrace()
         }
     }
+    fun cancelCardRead(){
+        pagandoService?.cancelReadCard()
+    }
 }
