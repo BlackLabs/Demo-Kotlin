@@ -46,6 +46,9 @@
             android:name=".controllers.DoCheckoutView"
             android:exported="false" />
         <activity
+            android:name=".controllers.SetSignatureView"
+            android:exported="false" />
+        <activity
             android:name=".controllers.GetPendingCheckoutsView"
             android:exported="false" />
         <activity

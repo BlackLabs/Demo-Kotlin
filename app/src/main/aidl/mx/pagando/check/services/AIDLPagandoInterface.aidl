@@ -1,6 +1,7 @@
 // IAIDLColorInterface.aidl
 package mx.pagando.check.services;
 import mx.pagando.check.services.PagandoServicesCallback;
+import mx.pagando.check.services.RecoveryPasswordCallback;
 import mx.pagando.check.services.MakePaymentCallback;
 import mx.pagando.check.services.ReadCardCallback;
 import mx.pagando.check.services.GetOperationsCallback;
@@ -54,7 +55,7 @@ interface AIDLPagandoInterface {
     void getUserOrganizations(GetOrganizationsCallback callback);
     void getOrganizationById(String organizationId, PagandoServicesCallback callback);
     void changeOrganization(String profile, ChangeOrganizationCallback callback);
-    void recovertPasswordEmail(String email, PagandoServicesCallback callback);
+    void recovertPasswordEmail(String email, RecoveryPasswordCallback callback);
     void operationByFolio(String folio, TransactionByFolioCallback callback);
     void organizationTransaction(String currentPage, String perPage, String search, String filter, OrganizationTransactionCallBack callback);
     void pendingCheckOuts(int perPage, int currentPage, String search, String filters, String organization, String date, PendingCheckoutCallback callback);
