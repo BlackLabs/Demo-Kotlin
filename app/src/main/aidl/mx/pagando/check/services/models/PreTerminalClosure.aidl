@@ -1,7 +1,7 @@
 package mx.pagando.check.services.models;
 
 parcelable PreTerminalClosure {
-    double salesNumber;
+    double totalTransactions;
     double totalSales;
     double totalMSI;
     double totalCancellations;

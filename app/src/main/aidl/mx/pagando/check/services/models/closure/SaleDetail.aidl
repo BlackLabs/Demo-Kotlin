@@ -1,7 +1,7 @@
 package mx.pagando.check.services.models.closure;
 
 parcelable SaleDetail{
-    double salesNumber;
+    double totalTransactions;
     double totalSales;
     double totalMSI;
     double totalCancellations;
