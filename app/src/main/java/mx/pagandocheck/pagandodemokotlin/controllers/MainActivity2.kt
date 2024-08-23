@@ -152,7 +152,7 @@ class MainActivity2 : AppCompatActivity() {
 //            intent?.putExtra("Result", result)
 //
 //            setResult(Activity.RESULT_CANCELED, intent)
-            finish()
+            finishAndRemoveTask()
         }
         finishButton.setOnClickListener {
             Log.i("FinishBUtton", "Button terminar")
@@ -163,7 +163,7 @@ class MainActivity2 : AppCompatActivity() {
 //            val intent = packageManager.getLaunchIntentForPackage("com.enerfueltech.mpos")
 //            intent?.putExtra("Result", result)
             setResult(Activity.RESULT_OK, intent)
-            finish()
+            finishAndRemoveTask()
         }
     }
 
@@ -561,32 +561,32 @@ private fun loginApi(key: String, cookie: String) {
 ////                        signatureView.setVisibility(true)
 ////                        signatureView.displayCanvas(::setSignature)
 //                    }
-                                setSuccessResponse(PaymentResponse())
+//                                setSuccessResponse(PaymentResponse())
 
 
-//            checkServices.makePayment(object : MakePaymentCallback.Stub() {
-//                override fun onPaymentSuccess(paymentResponse: PaymentResponse?) {
-//                    Log.i("initKeysRequired", paymentResponse?.mustReloadKeySoon.toString() + " " + paymentResponse?.mustReloadKeyNow  )
-//                    if (paymentResponse?.mustReloadKeySoon == true || paymentResponse?.mustReloadKeyNow == true){
-//                        initKeysRequired = true
-//                    }
-//
-//                    setSuccessResponse(paymentResponse)
-//                }
-//
-//                override fun onSignatureRequired() {
-//                    runOnUiThread {
-//                        Log.i("Signature", "REQUIERD")
-////                        signatureView.setActivity(this@MainActivity)
-////                        signatureView.setVisibility(true)
-////                        signatureView.displayCanvas(::setSignature)
-//                    }
-//                }
-//
-//                override fun onError(errorResponse: ErrorResponse?) {
-//                    setErrorResponse(errorResponse)
-//                }
-//            })
+            checkServices.makePayment(object : MakePaymentCallback.Stub() {
+                override fun onPaymentSuccess(paymentResponse: PaymentResponse?) {
+                    Log.i("initKeysRequired", paymentResponse?.mustReloadKeySoon.toString() + " " + paymentResponse?.mustReloadKeyNow  )
+                    if (paymentResponse?.mustReloadKeySoon == true || paymentResponse?.mustReloadKeyNow == true){
+                        initKeysRequired = true
+                    }
+
+                    setSuccessResponse(paymentResponse)
+                }
+
+                override fun onSignatureRequired() {
+                    runOnUiThread {
+                        Log.i("Signature", "REQUIERD")
+//                        signatureView.setActivity(this@MainActivity)
+//                        signatureView.setVisibility(true)
+//                        signatureView.displayCanvas(::setSignature)
+                    }
+                }
+
+                override fun onError(errorResponse: ErrorResponse?) {
+                    setErrorResponse(errorResponse)
+                }
+            })
         } catch (ex: Exception) {
             setExceptionResponse(ex)
         }
