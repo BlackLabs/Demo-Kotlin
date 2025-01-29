@@ -11,6 +11,7 @@ import android.widget.Spinner
 import android.widget.TextView
 import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
+import mx.pagando.check.services.ActionNipCallback
 import mx.pagando.check.services.GetCardBrandCallback
 import mx.pagando.check.services.MakePaymentCallback
 import mx.pagando.check.services.ReadCardCallback
@@ -116,8 +117,8 @@ class ReadCardView : AppCompatActivity() {
                 btnAction.isActivated = false
             }
 
-            override fun onActionNip(message: String) {
-                nipPagandoView.proccessMessage(message)
+            override fun onActionNip(message: String, callback: ActionNipCallback) {
+                nipPagandoView.proccessMessage(message, callback)
             }
 
             override fun onApplicationSelection(apps: Array<String>, selectAppCallback: SelectAppCallback) {

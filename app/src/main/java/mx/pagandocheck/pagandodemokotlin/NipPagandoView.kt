@@ -11,6 +11,7 @@ import android.view.View
 import android.widget.Button
 import android.widget.LinearLayout
 import android.widget.TextView
+import mx.pagando.check.services.ActionNipCallback
 
 class NipPagandoView @JvmOverloads
 constructor(context: Context, attrs: AttributeSet? = null, defStyleAttr: Int = 0) :
@@ -29,6 +30,8 @@ constructor(context: Context, attrs: AttributeSet? = null, defStyleAttr: Int = 0
     private lateinit var btn9: Button
     lateinit var pinView: TextView
     lateinit var keypad: LinearLayout
+    var callback: ActionNipCallback? = null
+    var pin: String = ""
 
     private lateinit var btnCancel: LinearLayout
     private lateinit var btnConfirm: LinearLayout
@@ -52,9 +55,55 @@ constructor(context: Context, attrs: AttributeSet? = null, defStyleAttr: Int = 0
         btn8 = view.findViewById(R.id.btn8)
         btn9 = view.findViewById(R.id.btn9)
 
+        val buttons = arrayListOf(
+            btn0,
+            btn1,
+            btn2,
+            btn3,
+            btn4,
+            btn5,
+            btn6,
+            btn7,
+            btn8,
+            btn9
+        )
+
         btnCancel = view.findViewById(R.id.btnCancel)
         btnConfirm = view.findViewById(R.id.btnConfirm)
         btnClean = view.findViewById(R.id.btnClean)
+
+        for (button in buttons) {
+            button.setOnClickListener {
+                if(this.callback != null) {
+                    pinView.text = pinView.text.toString() + "*"
+                    pin += button.text
+                }
+            }
+        }
+
+        btnCancel.setOnClickListener {
+            if(this.callback != null) {
+                pinView.text = ""
+                callback!!.onCancel()
+                keypad.visibility = View.INVISIBLE
+            }
+        }
+
+        btnConfirm.setOnClickListener {
+            if(this.callback != null) {
+                callback!!.onSetPin(pin)
+                pinView.text = ""
+                pin = ""
+                keypad.visibility = View.INVISIBLE
+            }
+        }
+
+        btnClean.setOnClickListener {
+            if(this.callback != null) {
+                pin = ""
+                pinView.text = ""
+            }
+        }
     }
 
     fun getPinLayout(): IntArray? {
@@ -279,10 +328,15 @@ constructor(context: Context, attrs: AttributeSet? = null, defStyleAttr: Int = 0
     }
 
     @SuppressLint("SetTextI18n")
-    fun proccessMessage(message: String?) {
+    fun proccessMessage(message: String?, callback: ActionNipCallback) {
         activity.runOnUiThread {
             when (message) {
+
                 "MESSAGE_SHOW_KEYPAD" -> keypad.visibility = View.VISIBLE
+                "MESSAGE_SET_CALLBACK" ->  {
+                    this.callback = callback
+                    keypad.visibility = View.VISIBLE
+                }
 
                 "MESSAGE_CLOSE_KEYPAD" -> {
                     pinView.text = ""

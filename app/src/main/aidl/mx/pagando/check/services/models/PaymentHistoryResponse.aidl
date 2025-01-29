@@ -37,7 +37,7 @@ parcelable PaymentHistoryResponse {
     // Fechas y horas de cada transacción realizada.
     List<String> transactionTime;
 
-    // Credito, debito
+    // Crédito, débito
     List<String> paymentType;
 
     //subtotal de la compra
