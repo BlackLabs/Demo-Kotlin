@@ -1,4 +1,5 @@
 package mx.pagando.check.services.models;
+import mx.pagando.check.services.models.IssuerInfo;
 
 parcelable PaymentResponse {
     String responseCode;
@@ -24,4 +25,10 @@ parcelable PaymentResponse {
     String operationType;
     String BIN;
     String BIN8;
+    IssuerInfo issuerInfo;
+    boolean isDeferredPayment;
+    String monthsToWait;
+    String numberOfPayments;
+    boolean hasInterest;
+    String promotionType;
 }

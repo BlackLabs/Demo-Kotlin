@@ -49,7 +49,7 @@ class CheckServices(context: Context) {
             Log.d("HardwareServices", "Remote config Service Disconnected!!")
             context.bindService(
                 Intent("mx.pagando.check.services.AIDLPagandoService")
-                    .setPackage("mx.pagando.check.services"),
+                    .setPackage("mx.pagando.check.services.devTest"),
                 this,
                 ComponentActivity.BIND_AUTO_CREATE
             )
@@ -64,7 +64,7 @@ class CheckServices(context: Context) {
     init {
         context.bindService(
             Intent("mx.pagando.check.services.AIDLPagandoService")
-                .setPackage("mx.pagando.check.services"),
+                .setPackage("mx.pagando.check.services.devTest"),
             mConnection,
             ComponentActivity.BIND_AUTO_CREATE
         )
