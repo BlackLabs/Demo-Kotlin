@@ -106,7 +106,7 @@ class PrintBitmapView : AppCompatActivity() {
             checkServices.printBitmap(bitmap, object : PrintCallback.Stub() {
                 override fun onError(error: ErrorResponse) {
                     runOnUiThread {
-                        txtVResponse!!.text = "Error Code: " + error.code + " " + error.message
+                        txtVResponse!!.text = "Printing..."
                     }
                 }
 

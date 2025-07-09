@@ -50,9 +50,10 @@ class ReadCardView : AppCompatActivity() {
         btnCardBrand.setOnClickListener{cardBrand()}
         btnAction.setOnClickListener { readCard(nipView) }
         btnMakePayment.setOnClickListener {
-            if (makePaymentReady) {
-                makePayment()
-            }
+            makePayment()
+//            if (makePaymentReady) {
+//                makePayment()
+//            }
         }
     }
 

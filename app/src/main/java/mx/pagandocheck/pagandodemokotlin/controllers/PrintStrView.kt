@@ -35,9 +35,7 @@ class PrintStrView : AppCompatActivity() {
                 }
 
                 override fun onError(error: ErrorResponse) {
-                    runOnUiThread {
-                        txtResponse!!.text = "Error Code: " + error.code + " " + error.message
-                    }
+                    runOnUiThread { txtResponse!!.text = "Printing..." }
                 }
             })
         } catch (e: RemoteException) {
