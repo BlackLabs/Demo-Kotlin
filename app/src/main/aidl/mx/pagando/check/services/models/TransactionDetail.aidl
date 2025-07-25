@@ -16,6 +16,9 @@ parcelable TransactionDetail {
      String promotionType;
      String terminalCutFolio;
      String authCode;
+     String AID;
+     String ARQC;
+     String originalFolio;
      double organizationCommisionAmount;
      double organizationCommisionPercent;
      int totalDiscounts;

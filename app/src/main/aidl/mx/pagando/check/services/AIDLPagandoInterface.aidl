@@ -80,5 +80,6 @@ interface AIDLPagandoInterface {
     void sysUpdate(SysUpdateServicesCallback callback);
 
     boolean isQPS();
+    void getCardBrandCR(String commerceReference, GetCardBrandCallback callback);
 
 }
