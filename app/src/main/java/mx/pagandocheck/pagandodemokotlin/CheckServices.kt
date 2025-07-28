@@ -428,6 +428,14 @@ class CheckServices(context: Context) {
             e.printStackTrace()
         }
     }
+    fun getCardBrandCR(comerceReference : String, callback: GetCardBrandCallback.Stub) {
+        try {
+            if (pagandoService != null)
+                pagandoService!!.getCardBrandCR(comerceReference, callback)
+        } catch (e: Exception) {
+            e.printStackTrace()
+        }
+    }
     fun cancelCardRead(){
         pagandoService?.cancelReadCard()
     }
