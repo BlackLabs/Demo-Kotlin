@@ -307,6 +307,24 @@ class CheckServices(context: Context) {
     }
 
     /**
+     * Se guarda la información de propina y mesero.
+     *
+     * @param tip Cantidad que se desea ingresar para propina.
+     * @param waiter Número de mesero a guardar.
+     * */
+    fun setTipAndWaiter(
+        tip: String,
+        waiter: String?
+    ) {
+        try {
+            if (pagandoService != null)
+                pagandoService!!.setTipAndWaiter(tip, waiter)
+        } catch (e: Exception) {
+            e.printStackTrace()
+        }
+    }
+
+    /**
      * Lee la información de una tarjeta a través de la terminal de Pagando Check.
      *
      * @param nipPagandoView La vista utilizada para ingresar y procesar el NIP de la tarjeta.

@@ -1,12 +1,12 @@
 package mx.pagandocheck.pagandodemokotlin.controllers
 
-import android.content.DialogInterface
 import android.os.Bundle
 import android.os.RemoteException
-import android.util.Log
 import android.view.View
+import android.widget.AdapterView
 import android.widget.Button
 import android.widget.EditText
+import android.widget.LinearLayout
 import android.widget.Spinner
 import android.widget.TextView
 import androidx.appcompat.app.AlertDialog
@@ -27,6 +27,9 @@ class ReadCardView : AppCompatActivity() {
 
     private lateinit var txtVResponse: TextView
     private lateinit var edtAmount: EditText
+    private lateinit var edtWaiterNumber: EditText
+    private lateinit var edtTipAmount: EditText
+    private lateinit var lnrTip: LinearLayout
     private lateinit var nipView: NipPagandoView
     private lateinit var btnAction: Button
     private lateinit var btnMakePayment: Button
@@ -39,6 +42,9 @@ class ReadCardView : AppCompatActivity() {
         btnAction = findViewById(R.id.btnReadCardAction)
         txtVResponse = findViewById(R.id.txtVReadCardResponse)
         edtAmount = findViewById(R.id.edtTReadCardAmount)
+        edtTipAmount = findViewById(R.id.edtTipAmount)
+        edtWaiterNumber = findViewById(R.id.edtWaiterNumber)
+        lnrTip = findViewById(R.id.lnrTip)
         nipView = findViewById(R.id.nipPagandoView)
         btnMakePayment = findViewById(R.id.btnMakePayment)
         spinTransaction = findViewById(R.id.spinnerTransactionType)
@@ -47,28 +53,48 @@ class ReadCardView : AppCompatActivity() {
         nipView.setTitle("Ingresa tu NIP")
         nipView.setActivity(this)
 
-        btnCardBrand.setOnClickListener{cardBrand()}
+        btnCardBrand.setOnClickListener { cardBrand() }
         btnAction.setOnClickListener { readCard(nipView) }
         btnMakePayment.setOnClickListener {
             if (makePaymentReady) {
                 makePayment()
             }
         }
+
+        spinTransaction.onItemSelectedListener = object : AdapterView.OnItemSelectedListener {
+            override fun onItemSelected(
+                parent: AdapterView<*>?,
+                view: View?,
+                position: Int,
+                id: Long
+            ) {
+                val selectedItem = parent!!.getItemAtPosition(position).toString()
+                lnrTip.visibility = if (selectedItem == "SALE_TIP") View.VISIBLE else View.GONE
+            }
+
+            override fun onNothingSelected(p0: AdapterView<*>?) {
+                lnrTip.visibility = View.GONE
+            }
+        }
     }
 
-    private fun cardBrand(){
+    private fun cardBrand() {
         val checkServices = CheckServices.getInstance(this)
         checkServices.getCardBrand(object : GetCardBrandCallback.Stub() {
             override fun onSuccessful(cardBrand: CardBrand?) {
-                runOnUiThread {txtVResponse.text = "Success\n Card Brand: " + cardBrand?.let { Stringfy.getString(it) }}
+                runOnUiThread {
+                    txtVResponse.text =
+                        "Success\n Card Brand: " + cardBrand?.let { Stringfy.getString(it) }
+                }
                 saveTokenInSharedPreferences(cardBrand?.idempotencyToken)
             }
 
             override fun onError(error: ErrorResponse) {
-                runOnUiThread {txtVResponse.text = error.code + " " + error.message}
+                runOnUiThread { txtVResponse.text = error.code + " " + error.message }
             }
         })
     }
+
     private fun saveTokenInSharedPreferences(token: String?) {
         if (token != null) {
             val sharedPreferences = getSharedPreferences("MyAppPrefs", MODE_PRIVATE)
@@ -87,7 +113,9 @@ class ReadCardView : AppCompatActivity() {
                 }
 
                 override fun onPaymentSuccess(paymentResponse: PaymentResponse) {
-                    runOnUiThread { txtVResponse.text = "Successful.\n" + Stringfy.getString(paymentResponse) }
+                    runOnUiThread {
+                        txtVResponse.text = "Successful.\n" + Stringfy.getString(paymentResponse)
+                    }
                 }
 
                 override fun onSignatureRequired() {
@@ -99,45 +127,60 @@ class ReadCardView : AppCompatActivity() {
         }
     }
 
-    private fun readCard(nipPagandoView: NipPagandoView) {
+    fun setTip() {
         val checkServices = CheckServices.getInstance(this)
-        checkServices.readCard(nipPagandoView, edtAmount.text.toString(), spinTransaction.getSelectedItem().toString(), object : ReadCardCallback.Stub() {
-            override fun onError(error: ErrorResponse) {
-                txtVResponse.text = error.code + " " + error.message
-            }
+        checkServices.setTipAndWaiter(edtTipAmount.text.toString(), edtWaiterNumber.text.toString())
+    }
 
-            override fun onSuccessful(typeCard: Int) {
-                txtVResponse.text = "Puede retirar su tarjeta."
-                btnAction.isActivated = true
-                makePaymentReady = true
-            }
+    private fun readCard(nipPagandoView: NipPagandoView) {
+        if (spinTransaction.selectedItem.toString() == "SALE_TIP")
+            setTip()
 
-            override fun onMessage(message: String) {
-                txtVResponse.text = message
-                btnAction.isActivated = false
-            }
-
-            override fun onActionNip(message: String, callback: ActionNipCallback) {
-                nipPagandoView.proccessMessage(message, callback)
-            }
-
-            override fun onApplicationSelection(apps: Array<String>, selectAppCallback: SelectAppCallback) {
-                runOnUiThread {
-                    AlertDialog.Builder(this@ReadCardView)
-                        .setTitle("Select Application")
-                        .setCancelable(false)
-                        .setNegativeButton("Cancel") { dialog, wich ->
-                            dialog.dismiss()
-                            selectAppCallback!!.cancel()
-                            checkServices.cancelCardRead()
-                        }
-                        .setItems(apps) { dialog, wich ->
-                            dialog.dismiss()
-                            selectAppCallback!!.selectApp(wich)
-                        }
-                        .show()
+        val checkServices = CheckServices.getInstance(this)
+        checkServices.readCard(
+            nipPagandoView,
+            edtAmount.text.toString(),
+            spinTransaction.selectedItem.toString(),
+            object : ReadCardCallback.Stub() {
+                override fun onError(error: ErrorResponse) {
+                    txtVResponse.text = error.code + " " + error.message
                 }
-            }
-        })
+
+                override fun onSuccessful(typeCard: Int) {
+                    txtVResponse.text = "Puede retirar su tarjeta."
+                    btnAction.isActivated = true
+                    makePaymentReady = true
+                }
+
+                override fun onMessage(message: String) {
+                    txtVResponse.text = message
+                    btnAction.isActivated = false
+                }
+
+                override fun onActionNip(message: String, callback: ActionNipCallback) {
+                    nipPagandoView.proccessMessage(message, callback)
+                }
+
+                override fun onApplicationSelection(
+                    apps: Array<String>,
+                    selectAppCallback: SelectAppCallback
+                ) {
+                    runOnUiThread {
+                        AlertDialog.Builder(this@ReadCardView)
+                            .setTitle("Select Application")
+                            .setCancelable(false)
+                            .setNegativeButton("Cancel") { dialog, wich ->
+                                dialog.dismiss()
+                                selectAppCallback.cancel()
+                                checkServices.cancelCardRead()
+                            }
+                            .setItems(apps) { dialog, wich ->
+                                dialog.dismiss()
+                                selectAppCallback.selectApp(wich)
+                            }
+                            .show()
+                    }
+                }
+            })
     }
 }
