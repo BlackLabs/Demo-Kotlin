@@ -2,6 +2,7 @@
     <string name="app_name">PagandoDemoKotlin 1.0.14</string>
     <string-array name="transaction_types">
         <item>SALE</item>
+        <item>SALE_TIP</item>
         <item>REFUND</item>
         <item>CANCEL</item>
         <item>CHECK_IN</item>
