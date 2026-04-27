@@ -28,6 +28,8 @@ import mx.pagando.check.services.SysUpdateServicesCallback;
 import mx.pagando.check.services.TokenStatusCallback;
 import mx.pagando.check.services.models.OrganizationInfo;
 import mx.pagando.check.services.models.UserInfo;
+import mx.pagando.check.services.SendPaymentInfoCallback;
+import mx.pagando.check.services.SendTerminalCutCallback;
 
 import android.graphics.Bitmap;
 // Declare any non-default types here with import statements
@@ -74,12 +76,15 @@ interface AIDLPagandoInterface {
     OrganizationInfo getSelectedOrganization();
     UserInfo getUserInfo();
     String getAffiliation();
+    String getSerial();
 
     void getCardBrand(GetCardBrandCallback callback);
-    void getTokenStatus(String tokenInPotency, TokenStatusCallback callback);
+    void getTokenStatus(String tokenInPotency,String externalReference ,TokenStatusCallback callback);
     void sysUpdate(SysUpdateServicesCallback callback);
 
     boolean isQPS();
     void getCardBrandCR(String commerceReference, GetCardBrandCallback callback);
 
+    void sendPaymentInfo(String phone, String email, String folio, SendPaymentInfoCallback callback);
+    void sendTerminalCut(String email, String terminalCutID, SendTerminalCutCallback callback);
 }
