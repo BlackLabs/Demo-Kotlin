@@ -24,4 +24,7 @@ parcelable TransactionDetail {
      int totalDiscounts;
      boolean hasDispersion;
      String rejectReason;
+     boolean signature;
+     String signatureUrl;
+     String emvType;
 }

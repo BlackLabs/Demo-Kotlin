@@ -29,4 +29,5 @@ parcelable ClosureDetail {
     String serialNoTerminal ;
     double controldouble;
     boolean withDetail;
+    String _id;
 }
