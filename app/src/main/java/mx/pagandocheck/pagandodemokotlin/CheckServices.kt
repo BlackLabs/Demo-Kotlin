@@ -436,7 +436,7 @@ class CheckServices(context: Context) {
         token: String,
         callback: TokenStatusCallback.Stub
     ) {
-        pagandoService?.getTokenStatus(token, callback)
+        pagandoService?.getTokenStatus(token, "", callback)
     }
     fun getCardBrand(callback: GetCardBrandCallback.Stub) {
         try {
