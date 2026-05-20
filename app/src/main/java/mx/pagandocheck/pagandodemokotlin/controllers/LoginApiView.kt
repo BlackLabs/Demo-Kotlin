@@ -42,8 +42,8 @@ class LoginApiView : AppCompatActivity() {
         try {
             checkServices.loginApi(email, password, sandbox, object : LoginCallback.Stub() {
                 override fun onSuccessful() {
-                    Log.d("LoginApiView", "Successful")
-                    runOnUiThread { txtVResponse!!.text = "Successful" }
+                    Log.d("LoginApiView", "Success")
+                    runOnUiThread { txtVResponse!!.text = "Success" }
                 }
 
                 override fun onError(error: ErrorResponse) {

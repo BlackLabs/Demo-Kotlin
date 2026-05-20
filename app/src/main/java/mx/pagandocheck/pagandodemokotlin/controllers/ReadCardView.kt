@@ -109,17 +109,17 @@ class ReadCardView : AppCompatActivity() {
         try {
             checkServices.makePayment(object : MakePaymentCallback.Stub() {
                 override fun onError(error: ErrorResponse) {
-                    txtVResponse.text = error.code + " " + error.message
+                    runOnUiThread { txtVResponse.text = error.code + " " + error.message }
                 }
 
                 override fun onPaymentSuccess(paymentResponse: PaymentResponse) {
                     runOnUiThread {
-                        txtVResponse.text = "Successful.\n" + Stringfy.getString(paymentResponse)
+                        txtVResponse.text = "Success\n" + Stringfy.getString(paymentResponse)
                     }
                 }
 
                 override fun onSignatureRequired() {
-                    txtVResponse.text = "Signature required."
+                    runOnUiThread { txtVResponse.text = "Signature required." }
                 }
             })
         } catch (e: RemoteException) {
@@ -143,18 +143,22 @@ class ReadCardView : AppCompatActivity() {
             spinTransaction.selectedItem.toString(),
             object : ReadCardCallback.Stub() {
                 override fun onError(error: ErrorResponse) {
-                    txtVResponse.text = error.code + " " + error.message
+                    runOnUiThread { txtVResponse.text = error.code + " " + error.message }
                 }
 
                 override fun onSuccessful(typeCard: Int) {
-                    txtVResponse.text = "Puede retirar su tarjeta."
-                    btnAction.isActivated = true
-                    makePaymentReady = true
+                    runOnUiThread {
+                        txtVResponse.text = "Puede retirar su tarjeta."
+                        btnAction.isActivated = true
+                        makePaymentReady = true
+                    }
                 }
 
                 override fun onMessage(message: String) {
-                    txtVResponse.text = message
-                    btnAction.isActivated = false
+                    runOnUiThread {
+                        txtVResponse.text = message
+                        btnAction.isActivated = false
+                    }
                 }
 
                 override fun onActionNip(message: String, callback: ActionNipCallback) {

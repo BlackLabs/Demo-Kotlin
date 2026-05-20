@@ -31,7 +31,7 @@ class ChangeOrganizationView : AppCompatActivity() {
         try {
             checkServices.changeOrganization(profile, object : ChangeOrganizationCallback.Stub() {
                 override fun onSuccessful() {
-                    runOnUiThread { txtVResponse!!.text = "Successful" }
+                    runOnUiThread { txtVResponse!!.text = "Success" }
                 }
 
                 override fun onError(error: ErrorResponse) {
