@@ -60,7 +60,7 @@ class GetPendingCheckoutsView : AppCompatActivity() {
                     object : PendingCheckoutCallback.Stub() {
                         override fun onSuccessful(response: PendingCheckOutResponse) {
                             runOnUiThread {
-                                txtVResponse!!.text = "Successfull" + Stringfy.getString(
+                                txtVResponse!!.text = "Success\n" + Stringfy.getString(
                                     response
                                 )
                             }

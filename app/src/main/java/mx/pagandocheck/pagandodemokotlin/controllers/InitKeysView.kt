@@ -27,7 +27,7 @@ class InitKeysView : AppCompatActivity() {
         try {
             checkServices.initKeys(object : InitKeysCallback.Stub() {
                 override fun onSuccessful() {
-                    runOnUiThread { txtVResponse!!.text = "Successful" }
+                    runOnUiThread { txtVResponse!!.text = "Success" }
                 }
 
                 override fun onError(error: ErrorResponse) {

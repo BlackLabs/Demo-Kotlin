@@ -27,7 +27,7 @@ class LogOutView : AppCompatActivity() {
         try {
             checkServices.logout(object : LogoutCallback.Stub() {
                 override fun onSuccessful() {
-                    runOnUiThread { txtLogoutResponse!!.text = "Successful" }
+                    runOnUiThread { txtLogoutResponse!!.text = "Success" }
                 }
 
                 override fun onError(error: ErrorResponse) {
