@@ -15,6 +15,20 @@
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:text="Payment demo"
+                android:textSize="16dp"
+                />
+
+            <Button
+                android:id="@+id/btnCascadeOperation"
+                android:layout_width="match_parent"
+                android:layout_height="72dp"
+                android:layout_marginBottom="16dp"
+                android:text="Complete process (login to makepayment)" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
                 android:text="Authentication"
                 android:textSize="16dp"
                 />
