@@ -9,6 +9,7 @@ import mx.pagandocheck.pagandodemokotlin.CheckServices
 import mx.pagandocheck.pagandodemokotlin.R
 
 class MainActivity2 : AppCompatActivity() {
+    private var btnCascadeOperation: Button? = null
     private var btnLoginApi: Button? = null
     private var btnLogOut: Button? = null
     private var btnGetOrganizations: Button? = null
@@ -45,6 +46,7 @@ class MainActivity2 : AppCompatActivity() {
     }
 
     private fun initializeViews() {
+        btnCascadeOperation = findViewById(R.id.btnCascadeOperation)
         btnLoginApi = findViewById(R.id.btnLoginApi)
         btnLogOut = findViewById(R.id.btnLogOut)
         btnGetOrganizations = findViewById(R.id.btnGetOrganizations)
@@ -71,6 +73,11 @@ class MainActivity2 : AppCompatActivity() {
 
     private fun addFunctions() {
 
+        btnCascadeOperation!!.setOnClickListener {
+            navigateTo(
+                CascadeOperationView::class.java
+            )
+        }
         btnLoginApi!!.setOnClickListener {
             navigateTo(
                 LoginApiView::class.java
