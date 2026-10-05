@@ -30,6 +30,7 @@ import mx.pagando.check.services.PreTerminalClosureCallback
 import mx.pagando.check.services.PrintCallback
 import mx.pagando.check.services.PromotionsCallback
 import mx.pagando.check.services.ReadCardCallback
+import mx.pagando.check.services.ReadNonEmvCardCallback
 import mx.pagando.check.services.SignatureCallback
 import mx.pagando.check.services.TokenStatusCallback
 import mx.pagando.check.services.TransactionByFolioCallback
@@ -456,5 +457,33 @@ class CheckServices(context: Context) {
     }
     fun cancelCardRead(){
         pagandoService?.cancelReadCard()
+    }
+
+    /**
+     * Lee una tarjeta de banda magnética no bancaria (membresía, lealtad) sin pasar por EMV.
+     * No requiere sesión iniciada, se cancela con [cancelCardRead].
+     *
+     * @param timeoutMs Tiempo máximo de espera de la tarjeta en milisegundos.
+     * @param callback El callback que manejará la respuesta exitosa o el error de la operación.
+     */
+    fun readMagneticCard(timeoutMs: Int, callback: ReadNonEmvCardCallback.Stub) {
+        if (pagandoService != null)
+            pagandoService!!.readMagneticCard(timeoutMs, callback)
+        else
+            callback.onError(responseCode("no se pudo conectar al servicio... readMagneticCard"))
+    }
+
+    /**
+     * Lee una tarjeta NFC (membresía, control de acceso) sin pasar por EMV.
+     * No requiere sesión iniciada, se cancela con [cancelCardRead].
+     *
+     * @param timeoutMs Tiempo máximo de espera de la tarjeta en milisegundos.
+     * @param callback El callback que manejará la respuesta exitosa o el error de la operación.
+     */
+    fun readNfcCard(timeoutMs: Int, callback: ReadNonEmvCardCallback.Stub) {
+        if (pagandoService != null)
+            pagandoService!!.readNfcCard(timeoutMs, callback)
+        else
+            callback.onError(responseCode("no se pudo conectar al servicio... readNfcCard"))
     }
 }

@@ -30,6 +30,7 @@ import mx.pagando.check.services.models.OrganizationInfo;
 import mx.pagando.check.services.models.UserInfo;
 import mx.pagando.check.services.SendPaymentInfoCallback;
 import mx.pagando.check.services.SendTerminalCutCallback;
+import mx.pagando.check.services.ReadNonEmvCardCallback;
 
 import android.graphics.Bitmap;
 // Declare any non-default types here with import statements
@@ -87,4 +88,9 @@ interface AIDLPagandoInterface {
 
     void sendPaymentInfo(String phone, String email, String folio, SendPaymentInfoCallback callback);
     void sendTerminalCut(String email, String terminalCutID, SendTerminalCutCallback callback);
+
+    // Lectura de tarjetas fuera del flujo EMV (membresías, lealtad), no requieren sesión.
+    // Se cancelan con cancelReadCard()
+    void readMagneticCard(int timeoutMs, ReadNonEmvCardCallback callback);
+    void readNfcCard(int timeoutMs, ReadNonEmvCardCallback callback);
 }

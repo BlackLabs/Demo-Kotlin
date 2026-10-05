@@ -25,6 +25,7 @@ class MainActivity2 : AppCompatActivity() {
     private var btnGetPendingCheckouts: Button? = null
     private var btnDoCheckout: Button? = null
     private var btnReadCard: Button? = null
+    private var btnReadNonEmvCard: Button? = null
     private var btnInitKeys: Button? = null
     private var btnTerminalClosure: Button? = null
     private var btnPreTerminalClosure: Button? = null
@@ -62,6 +63,7 @@ class MainActivity2 : AppCompatActivity() {
         btnGetPendingCheckouts = findViewById(R.id.btnGetPendingCheckouts)
         btnDoCheckout = findViewById(R.id.btnDoCheckout)
         btnReadCard = findViewById(R.id.btnReadCard)
+        btnReadNonEmvCard = findViewById(R.id.btnReadNonEmvCard)
         btnTerminalClosure = findViewById(R.id.btnTerminalClosure)
         btnPreTerminalClosure = findViewById(R.id.btnPreTerminalClosure)
         btnGenerateTerminalClosure = findViewById(R.id.btnGenerateTerminalClosure)
@@ -151,6 +153,11 @@ class MainActivity2 : AppCompatActivity() {
         btnReadCard!!.setOnClickListener {
             navigateTo(
                 ReadCardView::class.java
+            )
+        }
+        btnReadNonEmvCard!!.setOnClickListener {
+            navigateTo(
+                ReadNonEmvCardView::class.java
             )
         }
         btnTerminalClosure!!.setOnClickListener {
