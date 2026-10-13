@@ -78,6 +78,12 @@
                 android:layout_marginTop="8dp"
                 android:text="Read Card" />
             <Button
+                android:id="@+id/btnReadNonEmvCard"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:text="Read Membership Card (Mag / NFC)" />
+            <Button
                 android:id="@+id/btnGetTokenStatus"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"

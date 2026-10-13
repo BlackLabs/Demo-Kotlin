@@ -46,6 +46,9 @@
             android:name=".controllers.ReadCardView"
             android:exported="false" />
         <activity
+            android:name=".controllers.ReadNonEmvCardView"
+            android:exported="false" />
+        <activity
             android:name=".controllers.DoCheckoutView"
             android:exported="false" />
         <activity
