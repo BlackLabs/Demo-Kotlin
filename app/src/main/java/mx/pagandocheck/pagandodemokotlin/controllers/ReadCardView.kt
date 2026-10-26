@@ -14,6 +14,7 @@ import androidx.appcompat.app.AppCompatActivity
 import mx.pagando.check.services.ActionNipCallback
 import mx.pagando.check.services.GetCardBrandCallback
 import mx.pagando.check.services.MakePaymentCallback
+import mx.pagando.check.services.PrintCallback
 import mx.pagando.check.services.ReadCardCallback
 import mx.pagando.check.services.SelectAppCallback
 import mx.pagando.check.services.models.CardBrand
@@ -36,6 +37,7 @@ class ReadCardView : AppCompatActivity() {
     private lateinit var btnCardBrand: Button
     private lateinit var spinTransaction: Spinner
     private var makePaymentReady = false
+    private var lastPayment: PaymentResponse? = null
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_read_card_view)
@@ -54,6 +56,7 @@ class ReadCardView : AppCompatActivity() {
         nipView.setActivity(this)
 
         btnCardBrand.setOnClickListener { cardBrand() }
+        findViewById<Button>(R.id.btnPrintTicket).setOnClickListener { printTicket() }
         btnAction.setOnClickListener { readCard(nipView) }
         btnMakePayment.setOnClickListener {
             if (makePaymentReady) {
@@ -113,6 +116,7 @@ class ReadCardView : AppCompatActivity() {
                 }
 
                 override fun onPaymentSuccess(paymentResponse: PaymentResponse) {
+                    lastPayment = paymentResponse
                     runOnUiThread {
                         txtVResponse.text = "Success\n" + Stringfy.getString(paymentResponse)
                     }
@@ -125,6 +129,22 @@ class ReadCardView : AppCompatActivity() {
         } catch (e: RemoteException) {
             throw RuntimeException(e)
         }
+    }
+
+    private fun printTicket() {
+        val payment = lastPayment ?: run {
+            txtVResponse.text = "No successful payment to print."
+            return
+        }
+        Ticket.print(CheckServices.getInstance(this), payment, edtAmount.text.toString(), object : PrintCallback.Stub() {
+            override fun onSuccessful() {
+                runOnUiThread { txtVResponse.text = "Printing..." }
+            }
+
+            override fun onError(error: ErrorResponse) {
+                runOnUiThread { txtVResponse.text = error.code + " " + error.message }
+            }
+        })
     }
 
     fun setTip() {
