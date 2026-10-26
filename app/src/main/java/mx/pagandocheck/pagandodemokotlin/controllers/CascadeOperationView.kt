@@ -18,6 +18,7 @@ import mx.pagando.check.services.GetOperationsCallback
 import mx.pagando.check.services.InitKeysCallback
 import mx.pagando.check.services.LoginCallback
 import mx.pagando.check.services.MakePaymentCallback
+import mx.pagando.check.services.PrintCallback
 import mx.pagando.check.services.ReadCardCallback
 import mx.pagando.check.services.SelectAppCallback
 import mx.pagando.check.services.models.CardBrand
@@ -29,7 +30,7 @@ import mx.pagandocheck.pagandodemokotlin.R
 
 /**
  * Runs the complete sale flow in cascade:
- * Login -> Get Operations -> Init Keys -> Read Card -> Get Card Brand -> Make Payment.
+ * Login -> Get Operations -> Init Keys -> Read Card -> Get Card Brand -> Make Payment -> Print Ticket.
  * Each step only runs if the previous one succeeded.
  */
 class CascadeOperationView : AppCompatActivity() {
@@ -168,7 +169,7 @@ class CascadeOperationView : AppCompatActivity() {
 
                 override fun onSuccessful(typeCard: Int) {
                     log("4) Read Card: OK, you may remove your card", LogType.SUCCESS)
-                    doGetCardBrand(checkServices)
+                    doGetCardBrand(checkServices, amount)
                 }
 
                 override fun onMessage(message: String) {
@@ -204,12 +205,12 @@ class CascadeOperationView : AppCompatActivity() {
             })
     }
 
-    private fun doGetCardBrand(checkServices: CheckServices) {
+    private fun doGetCardBrand(checkServices: CheckServices, amount: String) {
         log("5) Card Brand: starting...", LogType.START)
         checkServices.getCardBrand(object : GetCardBrandCallback.Stub() {
             override fun onSuccessful(cardBrand: CardBrand?) {
                 log("5) Card Brand: OK ${cardBrand?.let { Stringfy.getString(it) }}", LogType.SUCCESS)
-                doMakePayment(checkServices)
+                doMakePayment(checkServices, amount)
             }
 
             override fun onError(error: ErrorResponse) {
@@ -219,7 +220,7 @@ class CascadeOperationView : AppCompatActivity() {
         })
     }
 
-    private fun doMakePayment(checkServices: CheckServices) {
+    private fun doMakePayment(checkServices: CheckServices, amount: String) {
         log("6) Make Payment: starting...", LogType.START)
         checkServices.makePayment(object : MakePaymentCallback.Stub() {
             override fun onError(error: ErrorResponse) {
@@ -229,11 +230,26 @@ class CascadeOperationView : AppCompatActivity() {
 
             override fun onPaymentSuccess(paymentResponse: PaymentResponse) {
                 log("6) Make Payment: OK\n${Stringfy.getString(paymentResponse)}", LogType.SUCCESS)
-                finishCascade()
+                doPrintTicket(checkServices, paymentResponse, amount)
             }
 
             override fun onSignatureRequired() {
                 log("6) Make Payment: signature required", LogType.ERROR)
+                finishCascade()
+            }
+        })
+    }
+
+    private fun doPrintTicket(checkServices: CheckServices, paymentResponse: PaymentResponse, amount: String) {
+        log("7) Print Ticket: starting...", LogType.START)
+        Ticket.print(checkServices, paymentResponse, amount, object : PrintCallback.Stub() {
+            override fun onSuccessful() {
+                log("7) Print Ticket: OK", LogType.SUCCESS)
+                finishCascade()
+            }
+
+            override fun onError(error: ErrorResponse) {
+                log("7) Print Ticket: ERROR", LogType.ERROR)
                 finishCascade()
             }
         })
